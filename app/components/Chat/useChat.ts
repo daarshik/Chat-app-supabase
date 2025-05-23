@@ -113,8 +113,7 @@ export default function useChat() {
   // Get or create conversation when a user is selected
   useEffect(() => {
     if (!currentUser || !selectedUser) return;
-    setMessages([]);
-    setOtherUserTyping(false);
+
     const getOrCreateConversation = async () => {
       try {
         // Step 1: Find conversations where both users are participants

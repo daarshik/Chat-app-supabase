@@ -333,13 +333,13 @@ const Chat = () => {
                       <div className="flex justify-start">
                         <div className="bg-gray-400 p-3 rounded-lg max-w-xs">
                           <div className="flex items-center space-x-1">
-                            <span className="text-sm text-gray-400">
+                            <span className="text-sm text-gray-50">
                               {selectedUser?.username} is typing
                             </span>
                             <div className="flex space-x-1">
-                              <div className="w-1 h-1 bg-gray-400 rounded-full animate-bounce"></div>
-                              <div className="w-1 h-1 bg-gray-400 rounded-full animate-bounce delay-100"></div>
-                              <div className="w-1 h-1 bg-gray-400 rounded-full animate-bounce delay-200"></div>
+                              <div className="w-1 h-1 bg-gray-50 rounded-full animate-bounce"></div>
+                              <div className="w-1 h-1 bg-gray-50 rounded-full animate-bounce delay-100"></div>
+                              <div className="w-1 h-1 bg-gray-50 rounded-full animate-bounce delay-200"></div>
                             </div>
                           </div>
                         </div>
