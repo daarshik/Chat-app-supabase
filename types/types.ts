@@ -2,6 +2,8 @@ export type User = {
   id: string;
   username: string;
   created_at: string;
+  email: string;
+  phone_number: string;
 };
 
 export type Message = {

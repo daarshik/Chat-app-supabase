@@ -38,6 +38,7 @@ import { CiEdit } from "react-icons/ci";
 import { RxTextAlignRight } from "react-icons/rx";
 import { GrAttachment } from "react-icons/gr";
 import { GoClock } from "react-icons/go";
+import { TbMessageCirclePlus } from "react-icons/tb";
 
 const Chat = () => {
   const {
@@ -187,7 +188,7 @@ const Chat = () => {
         <div className="grid grid-cols-24">
           <div className="col-[1_/_span_23] flex h-screen">
             <div className="flex bg-gray-100">
-              <div className="w-[400px] bg-white border-r border-gray-900 h-full overflow-y-auto">
+              <div className="w-[400px] bg-white border-r border-gray-900 h-full overflow-y-auto relative">
                 <div
                   className={`bg-white p-3.5 border-b border-gray-200 z-10 flex items-center justify-between gap-4 ${
                     selectedUser && conversationId ? "sticky top-12" : ""
@@ -218,9 +219,7 @@ const Chat = () => {
                   </div>
                 </div>
                 <div
-                  className={` ${
-                    selectedUser && conversationId ? "mt-12" : ""
-                  }`}
+                  className={`${selectedUser && conversationId ? "mt-12" : ""}`}
                 >
                   {users.map((user) => (
                     <div
@@ -268,6 +267,9 @@ const Chat = () => {
                     </div>
                   ))}
                 </div>
+                <div className="bg-green-700 rounded-full cursor-pointer flex justify-center items-center h-12 w-12 fixed bottom-4 left-[380px] z-10 shadow-lg hover:bg-green-800 transition duration-300 ease-in-out">
+                  <TbMessageCirclePlus size={30} color="white" />
+                </div>
               </div>
             </div>
             <div className="flex-1 flex flex-col h-full bg-[url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')] bg-contain bg-center">
@@ -314,9 +316,14 @@ const Chat = () => {
                             {message.content}
                           </p>
                           <div className="flex items-center justify-between text-xs text-gray-400 gap-4 pt-3">
-                            <p>daarshikdwivedi@gmail.com</p>
-                            <p className="">
+                            <p>
+                              {message.user_id === currentUser.id
+                                ? currentUser.email
+                                : selectedUser.email}
+                            </p>
+                            <p className="flex items-center gap-1 justify-center">
                               {format(new Date(message.created_at), "hh:mm a")}
+                              <BiCheckDouble size={15} color="blue" />
                             </p>
                           </div>
                         </div>
@@ -324,9 +331,9 @@ const Chat = () => {
                     ))}
                     {otherUserTyping && (
                       <div className="flex justify-start">
-                        <div className="bg-gray-900 p-3 rounded-lg max-w-xs">
+                        <div className="bg-gray-400 p-3 rounded-lg max-w-xs">
                           <div className="flex items-center space-x-1">
-                            <span className="text-sm text-gray-600">
+                            <span className="text-sm text-gray-400">
                               {selectedUser?.username} is typing
                             </span>
                             <div className="flex space-x-1">
