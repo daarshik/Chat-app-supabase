@@ -6,19 +6,12 @@ import {
   IoPersonCircle,
   IoSend,
   IoSettingsSharp,
-  IoSparkles,
   IoSparklesSharp,
   IoTicket,
 } from "react-icons/io5";
 import { HiMiniFolderArrowDown, HiOutlineSparkles } from "react-icons/hi2";
 import { BiCheckDouble } from "react-icons/bi";
-import {
-  MdChat,
-  MdGroups,
-  MdHelp,
-  MdInstallDesktop,
-  MdOutlinePhone,
-} from "react-icons/md";
+import { MdGroups, MdInstallDesktop, MdOutlinePhone } from "react-icons/md";
 import { FaListUl, FaMicrophone, FaWhatsapp } from "react-icons/fa";
 import { AiFillHome, AiFillPicture, AiOutlineHistory } from "react-icons/ai";
 import {
@@ -41,7 +34,6 @@ import {
   LuRefreshCcwDot,
 } from "react-icons/lu";
 import { IoMdNotificationsOff } from "react-icons/io";
-import { TfiReload } from "react-icons/tfi";
 import { CiEdit } from "react-icons/ci";
 import { RxTextAlignRight } from "react-icons/rx";
 import { GrAttachment } from "react-icons/gr";
@@ -61,7 +53,7 @@ const Chat = () => {
     messages,
     newMessage,
     conversationId,
-    // otherUserTyping,
+    otherUserTyping,
   } = useChat();
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -310,7 +302,7 @@ const Chat = () => {
                         </div>
                       </div>
                     ))}
-                    {/* {otherUserTyping && (
+                    {otherUserTyping && (
                       <div className="flex justify-start">
                         <div className="bg-gray-900 p-3 rounded-lg max-w-xs">
                           <div className="flex items-center space-x-1">
@@ -325,7 +317,7 @@ const Chat = () => {
                           </div>
                         </div>
                       </div>
-                    )} */}
+                    )}
                     <div ref={messagesEndRef} />
                   </div>
 
@@ -361,6 +353,7 @@ const Chat = () => {
                       </div>
                       <div className="flex-1 flex justify-end">
                         <button className=" text-gray-800  text-sm rounded-lg px-2 py-1 flex items-center justify-center border border-gray-200 gap-2">
+                          {/* eslint-disable @next/next/no-img-element  */}
                           <img
                             src="https://framerusercontent.com/images/ywGyuWgLKzqyB4QJ1sw5Nk1mckU.svg?scale-down-to=512"
                             alt="logo"
