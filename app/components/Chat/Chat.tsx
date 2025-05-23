@@ -54,6 +54,10 @@ const Chat = () => {
     newMessage,
     conversationId,
     otherUserTyping,
+    email,
+    setEmail,
+    phoneNumber,
+    setPhoneNumber,
   } = useChat();
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -69,10 +73,10 @@ const Chat = () => {
 
   if (!currentUser) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100 p-4">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100 p-4 bg-[url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')] bg-contain bg-center">
         <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md">
           <h1 className="mb-6 text-center text-2xl font-bold">
-            Enter a Username
+            Welcome to Chat App
           </h1>
           <form onSubmit={handleUsernameSubmit} className="space-y-4">
             <input
@@ -83,11 +87,27 @@ const Chat = () => {
               className="w-full rounded border border-gray-300 p-2"
               required
             />
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your email"
+              className="w-full rounded border border-gray-300 p-2"
+              required
+            />
+            <input
+              type="text"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              placeholder="Your phone number"
+              className="w-full rounded border border-gray-300 p-2"
+              required
+            />
             <button
               type="submit"
-              className="w-full rounded bg-blue-500 p-2 text-white hover:bg-blue-600"
+              className="w-full rounded bg-green-500 p-2 text-white hover:bg-green-600 mt-12"
             >
-              Join Chat
+              Login
             </button>
           </form>
         </div>

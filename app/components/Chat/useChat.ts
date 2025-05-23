@@ -13,6 +13,8 @@ export default function useChat() {
   const [conversationId, setConversationId] = useState<string | null>(null);
   const [isTyping, setIsTyping] = useState(false);
   const [otherUserTyping, setOtherUserTyping] = useState(false);
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -52,7 +54,7 @@ export default function useChat() {
         // Create new user
         const { data: newUser, error: createError } = await supabase
           .from("users")
-          .insert([{ username }])
+          .insert([{ username, email, phone_number: phoneNumber }])
           .select("*")
           .single();
 
@@ -416,5 +418,9 @@ export default function useChat() {
     setIsTyping,
     otherUserTyping,
     setOtherUserTyping,
+    email,
+    setEmail,
+    phoneNumber,
+    setPhoneNumber,
   };
 }
